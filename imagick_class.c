@@ -1009,7 +1009,7 @@ PHP_METHOD(imagick, setimageorientation)
 
 #if MagickLibVersion > 0x634
 /* {{{ proto Imagick Imagick::paintFloodfillImage(mixed fill, float fuzz, mixed bordercolor, int x, int y[, int channel])
-   Sets the image orientation
+   Changes the color value of any pixel that matches target
 */
 PHP_METHOD(imagick, paintfloodfillimage)
 {
