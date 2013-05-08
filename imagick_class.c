@@ -1104,7 +1104,7 @@ PHP_METHOD(imagick, getimageproperties)
 		IMAGICK_THROW_EXCEPTION_WITH_MESSAGE(IMAGICK_CLASS, "Unable to get image properties", 1);
 	}
 
-	array_init(return_value);
+	array_init_size(return_value, properties_count);
 
 	if (values) {
 
@@ -1152,7 +1152,7 @@ PHP_METHOD(imagick, getimageprofiles)
 		IMAGICK_THROW_EXCEPTION_WITH_MESSAGE(IMAGICK_CLASS, "Unable to get image profiles", 1);
 	}
 
-	array_init(return_value);
+	array_init_size(return_value, profiles_count);
 
 	if (values) {
 
