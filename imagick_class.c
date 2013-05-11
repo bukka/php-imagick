@@ -1943,7 +1943,7 @@ PHP_METHOD(imagick, setimagegravity)
 #endif
 
 #if MagickLibVersion > 0x645
-/* {{ proto Imagick Imagick::importImagePixels(int x, int y, int width, int height, string map, int STORAGE, array pixels)
+/* {{{ proto bool Imagick::importImagePixels(int x, int y, int width, int height, string map, int STORAGE, array pixels)
 	Accepts pixel data and stores it in the image at the location you specify
  */
 PHP_METHOD(imagick, importimagepixels) 
