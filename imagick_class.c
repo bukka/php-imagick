@@ -2034,6 +2034,9 @@ PHP_METHOD(imagick, importimagepixels)
 }
 /* }}} */
 
+/* {{{ proto bool Imagick::deskewImage(float threshold)
+	Removes skew from the image
+ */
 PHP_METHOD(imagick, deskewimage)
 {
 	php_imagick_object *intern;
@@ -2053,7 +2056,11 @@ PHP_METHOD(imagick, deskewimage)
 	}
 	RETURN_TRUE;
 }
+/* }}} */
 
+/* {{{ proto bool Imagick::segmentImage(int COLORSPACE, float cluster_threshold, float smooth_threshold, bool verbose)
+	Segments an image
+ */
 PHP_METHOD(imagick, segmentimage)
 {
 	php_imagick_object *intern;
@@ -2076,7 +2083,11 @@ PHP_METHOD(imagick, segmentimage)
 	}
 	RETURN_TRUE;
 }
+/* }}} */
 
+/* {{{ proto bool Imagick::sparseColorImage(int SPARSE_METHOD, array arguments, int channel)
+	Interpolates colors
+ */
 PHP_METHOD(imagick, sparsecolorimage)
 {
 	php_imagick_object *intern;
@@ -2106,6 +2117,7 @@ PHP_METHOD(imagick, sparsecolorimage)
 	}
 	RETURN_TRUE;	
 }
+/* }}} */
 
 /* {{{ proto bool Imagick::remapImage(Imagick remap, int DITHERMETHOD)
 	replaces the colors of an image with the closest color from a reference image
