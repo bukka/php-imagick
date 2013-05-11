@@ -1815,8 +1815,8 @@ PHP_METHOD(imagick, getgravity)
 }
 /* }}} */
 
-/* {{ proto Imagick Imagick::getImageChannelRange(int CHANNEL)
-		Gets the image channel's range
+/* {{{ proto array Imagick::getImageChannelRange(int CHANNEL)
+	Gets the image channel's range
  */
 PHP_METHOD(imagick, getimagechannelrange)
 {
@@ -1834,7 +1834,7 @@ PHP_METHOD(imagick, getimagechannelrange)
 		IMAGICK_THROW_IMAGICK_EXCEPTION(intern->magick_wand, "Unable to get channel range", 1);
 	}
 	
-	array_init(return_value);
+	array_init_size(return_value, 2);
 	
 	add_assoc_double(return_value, "minima", minima);
 	add_assoc_double(return_value, "maxima", maxima);
