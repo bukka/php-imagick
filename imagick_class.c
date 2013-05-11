@@ -1444,7 +1444,7 @@ PHP_METHOD(imagick, setfont)
 
 	/* Check that no empty string is passed */
 	if (font_len == 0) {
-		IMAGICK_THROW_EXCEPTION_WITH_MESSAGE(IMAGICK_CLASS, "Can not set empty font", 1);
+		IMAGICK_THROW_EXCEPTION_WITH_MESSAGE(IMAGICK_CLASS, "Cannot set empty font", 1);
 	}
 
 	intern = (php_imagick_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
