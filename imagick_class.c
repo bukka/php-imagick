@@ -1638,7 +1638,7 @@ PHP_METHOD(imagick, opaquepaintimage)
 /* }}} */
 
 /* {{{ proto bool Imagick::transparentPaintImage(mixed target, float alpha, float fuzz, bool invert)
-	Changes any pixel that matches color with the color defined by fill
+	Changes any pixel that matches color with the color defined by target
 */
 PHP_METHOD(imagick, transparentpaintimage)
 {
