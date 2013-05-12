@@ -2152,8 +2152,8 @@ PHP_METHOD(imagick, remapimage)
 #endif
 
 #if MagickLibVersion > 0x646
-/* {{{ proto bool Imagick::exportImagePixels(int x, int y, int width, int height, string map, INT STORAGE)
-	TODO: IMPLEMENTATION
+/* {{{ proto array Imagick::exportImagePixels(int x, int y, int width, int height, string map, int STORAGE)
+	Exprots raw image pixels
 */
 PHP_METHOD(imagick, exportimagepixels)
 {
@@ -2194,7 +2194,7 @@ PHP_METHOD(imagick, exportimagepixels)
 			status = MagickExportImagePixels(intern->magick_wand, x, y, width, height, map, DoublePixel, (void *)double_array);
 			
 			if (status != MagickFalse) {
-				array_init(return_value);
+				array_init_size(return_value, map_size);
 				for (i = 0; i < map_size; i++) {
 					add_next_index_double(return_value, double_array[i]);
 				}
@@ -2210,7 +2210,7 @@ PHP_METHOD(imagick, exportimagepixels)
 			status = MagickExportImagePixels(intern->magick_wand, x, y, width, height, map, LongPixel, (void *)long_array);
 		
 			if (status != MagickFalse) {
-				array_init(return_value);
+				array_init_size(return_value, map_size);
 				for (i = 0; i < map_size; i++) {
 					add_next_index_long(return_value, long_array[i]);
 				}
@@ -2224,7 +2224,7 @@ PHP_METHOD(imagick, exportimagepixels)
 			status = MagickExportImagePixels(intern->magick_wand, x, y, width, height, map, CharPixel, (void *)char_array);
 	
 			if (status != MagickFalse) {
-				array_init(return_value);
+				array_init_size(return_value, map_size);
 				for (i = 0; i < map_size; i++) {
 					 add_next_index_long(return_value, (int)char_array[i]);
 				}
@@ -2241,6 +2241,7 @@ PHP_METHOD(imagick, exportimagepixels)
 	if (status == MagickFalse) {
 		IMAGICK_THROW_IMAGICK_EXCEPTION(intern->magick_wand, "Unable to export image pixels", 1);
 	}
+	/* this should never happened */
 	RETURN_TRUE;
 }
 /* }}} */
