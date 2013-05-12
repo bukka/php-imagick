@@ -2377,6 +2377,9 @@ PHP_METHOD(imagick, haldclutimage)
 #endif
 
 #if MagickLibVersion > 0x656
+/* {{{ proto boolean Imagick::setImageArtifact(string artifact, string value)
+   Sets image artifact
+*/
 PHP_METHOD(imagick, setimageartifact)
 {
 	php_imagick_object *intern;
@@ -2397,8 +2400,11 @@ PHP_METHOD(imagick, setimageartifact)
 	}
 	RETURN_TRUE;	
 }
+/* }}} */
 
-
+/* {{{ proto boolean Imagick::getImageArtifact(string artifact)
+   Gets image artifact
+*/
 PHP_METHOD(imagick, getimageartifact) 
 {
 	php_imagick_object *intern;
@@ -2423,8 +2429,8 @@ PHP_METHOD(imagick, getimageartifact)
 	return;
 }
 
-/* {{{ proto boolean Imagick::deleteImageArtifact(string $artifact)
-   Delete image artifact
+/* {{{ proto boolean Imagick::deleteImageArtifact(string artifact)
+   Deletes image artifact
 */
 PHP_METHOD(imagick, deleteimageartifact) 
 {
