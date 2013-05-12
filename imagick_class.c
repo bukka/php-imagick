@@ -2457,7 +2457,7 @@ PHP_METHOD(imagick, deleteimageartifact)
 /* }}} */
 
 /* {{{ proto integer Imagick::getColorspace()
-   Get the object colorspace property
+   Gets the object colorspace property
 */
 PHP_METHOD(imagick, getcolorspace) 
 {
@@ -2472,8 +2472,8 @@ PHP_METHOD(imagick, getcolorspace)
 }
 /* }}} */
 
-/* {{{ proto boolean Imagick::setColorspace([int COLORSPACE])
-   Set the object colorspace property
+/* {{{ proto boolean Imagick::setColorspace(int COLORSPACE)
+   Sets the object colorspace property
 */
 PHP_METHOD(imagick, setcolorspace) 
 {
