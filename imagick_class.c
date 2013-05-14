@@ -2579,21 +2579,19 @@ PHP_METHOD(imagick, __tostring)
 	intern = (php_imagick_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 
 	if (MagickGetNumberImages(intern->magick_wand) == 0) {
-		ZVAL_STRING(return_value, "", 1);
-		return;
+		RETURN_EMPTY_STRING();
 	}
 
 	buffer = MagickGetImageFormat(intern->magick_wand);
 
 	if (!buffer) {
-		ZVAL_STRING(return_value, "", 1);
-		return;
+		RETURN_EMPTY_STRING();
 	} else {
 		IMAGICK_FREE_MEMORY(char *, buffer);
 	}
 
 	image = MagickGetImageBlob(intern->magick_wand, &image_size);
-	ZVAL_STRINGL(return_value, (char *)image, image_size, 1);
+	RETVAL_STRINGL((char *) image, image_size, 1);
 	IMAGICK_FREE_MEMORY(unsigned char *, image);
 	return;
 }
