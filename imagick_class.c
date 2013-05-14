@@ -2614,7 +2614,7 @@ PHP_METHOD(imagick, queryformats)
 	}
 
 	supported_formats = (char **) MagickQueryFormats(pattern, &num_formats);
-	array_init(return_value);
+	array_init_size(return_value, num_formats);
 
 	for (i = 0 ; i < num_formats ; i++) {
 		add_next_index_string(return_value, supported_formats[i], 1);
@@ -2641,7 +2641,7 @@ PHP_METHOD(imagick, queryfonts)
 	}
 
 	fonts = (char **) MagickQueryFonts(pattern, &num_fonts);
-	array_init(return_value);
+	array_init_size(return_value, num_fonts);
 
 	for (i = 0 ; i < num_fonts ; i++) {
 		add_next_index_string(return_value, fonts[i], 1);
