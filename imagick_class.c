@@ -3349,7 +3349,8 @@ PHP_METHOD(imagick, clipimage)
 /* }}} */
 
 /* {{{ proto bool Imagick::clipPathImage(string pathname, bool inside)
-	Clips along the named paths from the 8BIM profile, if present. Later operations take effect inside the path.  Id may be a number if preceded with #, to work on a numbered path, e.g., "#1" to use the first path.
+	Clips along the named paths from the 8BIM profile, if present. Later operations take effect inside the path.
+	Id may be a number if preceded with #, to work on a numbered path, e.g., "#1" to use the first path.
 */
 PHP_METHOD(imagick, clippathimage)
 {
@@ -3383,7 +3384,10 @@ PHP_METHOD(imagick, clippathimage)
 /* }}} */
 
 /* {{{ proto Imagick Imagick::coalesceImages()
-	Composites a set of images while respecting any page offsets and disposal methods.  GIF, MIFF, and MNG animation sequences typically start with an image background and each subsequent image varies in size and offset.  returns a new sequence where each image in the sequence is the same size as the first and composited with the next image in the sequence.
+	Composites a set of images while respecting any page offsets and disposal methods.  GIF, MIFF, and MNG
+	animation sequences typically start with an image background and each subsequent image varies in size and offset.
+	Returns a new sequence where each image in the sequence is the same size as the first and composited with
+	the next image in the sequence.
 */
 PHP_METHOD(imagick, coalesceimages)
 {
