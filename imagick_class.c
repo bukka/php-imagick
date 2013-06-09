@@ -6767,8 +6767,7 @@ PHP_METHOD(imagick, getimagecolors)
 	intern = (php_imagick_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	IMAGICK_CHECK_NOT_EMPTY(intern->magick_wand, 1, 1);
 
-	ZVAL_LONG(return_value, (long)MagickGetImageColors(intern->magick_wand));
-	return;
+	RETURN_LONG((long)MagickGetImageColors(intern->magick_wand));
 }
 /* }}} */
 
@@ -6890,7 +6889,8 @@ PHP_METHOD(imagick, setimagebackgroundcolor)
 /* }}} */
 
 /* {{{ proto bool Imagick::setImageCompose(int compose)
-	Sets the image composite operator, useful for specifying how to composite the image thumbnail when using the Imagick::montageImage() method.
+	Sets the image composite operator, useful for specifying how to composite
+	the image thumbnail when using the Imagick::montageImage() method.
 */
 PHP_METHOD(imagick, setimagecompose)
 {
@@ -7045,10 +7045,9 @@ PHP_METHOD(imagick, compareimagechannels)
 
 	add_next_index_zval(return_value, new_wand);
 	add_next_index_double(return_value, distortion);
-
-	return;
 }
 /* }}} */
+
 #if MagickLibVersion > 0x628
 /* {{{ proto Imagick Imagick::compareImageLayers(int method)
 	Compares each image with the next in a sequence and returns the maximum bounding region of any pixel differences it discovers.
@@ -7075,13 +7074,12 @@ PHP_METHOD(imagick, compareimagelayers)
 	object_init_ex(return_value, php_imagick_sc_entry);
 	intern_return = (php_imagick_object *)zend_object_store_get_object(return_value TSRMLS_CC);
 	IMAGICK_REPLACE_MAGICKWAND(intern_return, tmp_wand);
-
-	return;
 }
 /* }}} */
 #endif
+
 /* {{{ proto Imagick Imagick::flattenImages()
-	Merges a sequence of images.  This is useful for combining Photoshop layers into a single image.
+	Merges a sequence of images. This is useful for combining Photoshop layers into a single image.
 */
 PHP_METHOD(imagick, flattenimages)
 {
@@ -7219,13 +7217,13 @@ PHP_METHOD(imagick, fximage)
 	object_init_ex(return_value, php_imagick_sc_entry);
 	intern_return = (php_imagick_object *)zend_object_store_get_object(return_value TSRMLS_CC);
 	IMAGICK_REPLACE_MAGICKWAND(intern_return, tmp_wand);
-
-	return;
 }
 /* }}} */
 
 /* {{{ proto bool Imagick::gammaImage(float gamma[, int channel])
-	Gamma-corrects an image.  The same image viewed on different devices will have perceptual differences in the way the image's intensities are represented on the screen.  Specify individual gamma levels for the red, green, and blue channels, or adjust all three with the gamma parameter.  Values typically range from 0.8 to 2.3.
+	Gamma-corrects an image. The same image viewed on different devices will have perceptual differences in the way
+	the image's intensities are represented on the screen. Specify individual gamma levels for the red, green,
+	and blue channels, or adjust all three with the gamma parameter. Values typically range from 0.8 to 2.3.
 */
 PHP_METHOD(imagick, gammaimage)
 {
@@ -7253,7 +7251,8 @@ PHP_METHOD(imagick, gammaimage)
 /* }}} */
 
 /* {{{ proto bool Imagick::gaussianBlurImage(float radius, float sigma[, int channel])
-	Blurs an image.  We convolve the image with a Gaussian operator of the given radius and standard deviation (sigma). For reasonable results, the radius should be larger than sigma.  Use a radius of 0 and selects a suitable radius for you.
+	Blurs an image. We convolve the image with a Gaussian operator of the given radius and standard deviation (sigma).
+	For reasonable results, the radius should be larger than sigma. Use a radius of 0 and selects a suitable radius for you.
 */
 PHP_METHOD(imagick, gaussianblurimage)
 {
@@ -7317,13 +7316,12 @@ PHP_METHOD(imagick, compareimages)
 
 	add_next_index_zval(return_value, new_wand);
 	add_next_index_double(return_value, distortion);
-
-	return;
 }
 /* }}} */
 
 /* {{{ proto bool Imagick::contrastImage(bool sharpen)
-	Enhances the intensity differences between the lighter and darker elements of the image.  Set sharpen to a value other than 0 to increase the image contrast otherwise the contrast is reduced.
+	Enhances the intensity differences between the lighter and darker elements of the image.
+	Set sharpen to a value other than 0 to increase the image contrast otherwise the contrast is reduced.
 */
 PHP_METHOD(imagick, contrastimage)
 {
@@ -7680,7 +7678,8 @@ PHP_METHOD(imagick, charcoalimage)
 /* }}} */
 
 /* {{{ proto bool Imagick::oilPaintImage(float radius)
-	Applies a special effect filter that simulates an oil painting.  Each pixel is replaced by the most frequent color occurring in a circular region defined by radius.
+	Applies a special effect filter that simulates an oil painting. Each pixel is replaced by
+	the most frequent color occurring in a circular region defined by radius.
 */
 PHP_METHOD(imagick, oilpaintimage)
 {
@@ -7708,7 +7707,8 @@ PHP_METHOD(imagick, oilpaintimage)
 /* }}} */
 
 /* {{{ proto bool Imagick::normalizeImage([int channel])
-	Enhances the contrast of a color image by adjusting the pixels color to span the entire range of colors available, Channel parameter is ignored in ImageMagick below 6.2.8
+	Enhances the contrast of a color image by adjusting the pixels color to span
+	the entire range of colors available, Channel parameter is ignored in ImageMagick below 6.2.8
 */
 PHP_METHOD(imagick, normalizeimage)
 {
