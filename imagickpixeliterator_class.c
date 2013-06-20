@@ -23,7 +23,7 @@
 #include "php_imagick_macros.h"
 
 /* {{{ proto ImagickPixelIterator ImagickPixelIterator::__construct( Imagick source )
-   The ImagickPixelIterator constructor
+   The ImagickPixelIterator constructor.
 */
 PHP_METHOD(imagickpixeliterator, __construct)
 {
@@ -62,7 +62,7 @@ PHP_METHOD(imagickpixeliterator, __construct)
 /* }}} */
 
 /* {{{ proto bool ImagickPixelIterator::resetIterator()
-	Resets the pixel iterator.  Use it in conjunction with PixelGetNextIteratorRow() to iterate over all the pixels in a pixel container.
+	Resets the pixel iterator. Use it in conjunction with PixelGetNextIteratorRow() to iterate over all the pixels in a pixel container.
 */
 PHP_METHOD(imagickpixeliterator, resetiterator)
 {
@@ -357,7 +357,7 @@ PHP_METHOD(imagickpixeliterator, getpreviousiteratorrow)
 		RETURN_NULL();
 	}
 
-	array_init( return_value );
+	array_init_size( return_value, num_wands );
 
 	for (i = 0; i < num_wands; i++ ) {
 
@@ -370,8 +370,6 @@ PHP_METHOD(imagickpixeliterator, getpreviousiteratorrow)
 			add_next_index_zval( return_value, tmp_pixelwand );
 		}
 	}
-
-	return;
 }
 /* }}} */
 
@@ -417,7 +415,7 @@ PHP_METHOD(imagickpixeliterator, getcurrentiteratorrow)
 		RETURN_NULL();
 	}
 
-	array_init( return_value );
+	array_init_size( return_value, num_wands );
 
 	for (i = 0; i < num_wands; i++ ) {
 
@@ -430,8 +428,6 @@ PHP_METHOD(imagickpixeliterator, getcurrentiteratorrow)
 			add_next_index_zval( return_value, tmp_pixelwand );
 		}
 	}
-
-	return;
 }
 /* }}} */
 
@@ -470,7 +466,7 @@ PHP_METHOD(imagickpixeliterator, getnextiteratorrow)
 		RETURN_NULL();
 	}
 
-	array_init( return_value );
+	array_init_size( return_value, num_wands );
 
 	for (i = 0; i < num_wands; i++ ) {
 
@@ -484,7 +480,6 @@ PHP_METHOD(imagickpixeliterator, getnextiteratorrow)
 			add_next_index_zval( return_value, tmp_pixelwand );
 		}
 	}
-	return;
 }
 /* }}} */
 
