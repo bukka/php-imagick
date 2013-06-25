@@ -44,7 +44,7 @@ PHP_METHOD(imagickdraw, resetvectorgraphics)
 
 #if MagickLibVersion > 0x649
 /* {{{ proto bool ImagickDraw::getTextKerning()
-	Gets the text kerning
+	Gets the text kerning.
 */
 PHP_METHOD(imagickdraw, gettextkerning) 
 {
@@ -60,7 +60,7 @@ PHP_METHOD(imagickdraw, gettextkerning)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setTextKerning(float kerning)
-	Sets the text kerning
+	Sets the text kerning.
 */
 PHP_METHOD(imagickdraw, settextkerning) 
 {
@@ -78,7 +78,7 @@ PHP_METHOD(imagickdraw, settextkerning)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::getTextInterwordSpacing()
-	Gets the text interword spacing
+	Gets the text interword spacing.
 */
 PHP_METHOD(imagickdraw, gettextinterwordspacing) 
 {
@@ -94,7 +94,7 @@ PHP_METHOD(imagickdraw, gettextinterwordspacing)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setTextInterwordSpacing(float spacing)
-	Sets the text interword spacing
+	Sets the text interword spacing.
 */
 PHP_METHOD(imagickdraw, settextinterwordspacing) 
 {
@@ -114,7 +114,7 @@ PHP_METHOD(imagickdraw, settextinterwordspacing)
 
 #if MagickLibVersion > 0x655
 /* {{{ proto bool ImagickDraw::getTextInterlineSpacing()
-	Gets the text interword spacing
+	Gets the text interword spacing.
 */
 PHP_METHOD(imagickdraw, gettextinterlinespacing)
 {
@@ -149,7 +149,7 @@ PHP_METHOD(imagickdraw, settextinterlinespacing)
 #endif
 
 /* {{{ proto ImagickDraw ImagickDraw::__construct()
-   The ImagickDraw constructor
+   The ImagickDraw constructor.
 */
 PHP_METHOD(imagickdraw, __construct)
 {
@@ -320,7 +320,7 @@ PHP_METHOD(imagickdraw, setfillcolor)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setResolution(float x, float y)
-	Sets the resolution
+	Sets the resolution.
 */
 PHP_METHOD(imagickdraw, setresolution)
 {
@@ -420,7 +420,9 @@ PHP_METHOD(imagickdraw, settextantialias)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setTextEncoding(string encoding)
-	Specifies specifies the code set to use for text annotations. The only character encoding which may be specified at this time is "UTF-8" for representing Unicode as a sequence of bytes. Specify an empty string to set text encoding to the system's default. Successful text annotation using Unicode may require fonts designed to support Unicode.
+	Specifies specifies the code set to use for text annotations. The only character encoding which may be specified
+	at this time is "UTF-8" for representing Unicode as a sequence of bytes. Specify an empty string to set text
+	encoding to the system's default. Successful text annotation using Unicode may require fonts designed to support Unicode.
 */
 PHP_METHOD(imagickdraw, settextencoding)
 {
@@ -639,14 +641,14 @@ PHP_METHOD(imagickdraw, setfontweight)
 /* }}} */
 
 /* {{{ proto int ImagickDraw::getFontStretch(int fontStretch)
-	Gets the font stretch to use when annotating with text
+	Gets the font stretch to use when annotating with text.
 */
 PHP_METHOD(imagickdraw, getfontstretch)
 {
 	php_imagickdraw_object *internd;
 
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
-	RETVAL_LONG(DrawGetFontStretch(internd->drawing_wand));
+	RETURN_LONG(DrawGetFontStretch(internd->drawing_wand));
 }
 /* }}} */
 
@@ -671,7 +673,8 @@ PHP_METHOD(imagickdraw, setfontstretch)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setStrokeAntialias(bool stroke_antialias)
-	Controls whether stroked outlines are antialiased. Stroked outlines are antialiased by default.  When antialiasing is disabled stroked pixels are thresholded to determine if the stroke color or underlying canvas color should be used.
+	Controls whether stroked outlines are antialiased. Stroked outlines are antialiased by default. When antialiasing is disabled
+	stroked pixels are thresholded to determine if the stroke color or underlying canvas color should be used.
 */
 PHP_METHOD(imagickdraw, setstrokeantialias)
 {
@@ -755,7 +758,10 @@ PHP_METHOD(imagickdraw, settextundercolor)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setViewbox(float x1, float y1, float x2, float y2 )
-	Sets the overall canvas size to be recorded with the drawing vector data. Usually this will be specified using the same size as the canvas image. When the vector data is saved to SVG or MVG formats, the viewbox is use to specify the size of the canvas image that a viewer will render the vector data on.
+	Sets the overall canvas size to be recorded with the drawing vector data. Usually this
+	will be specified using the same size as the canvas image. When the vector data is saved
+	to SVG or MVG formats, the viewbox is use to specify the size of the canvas image that
+	a viewer will render the vector data on.
 */
 PHP_METHOD(imagickdraw, setviewbox)
 {
@@ -774,7 +780,7 @@ PHP_METHOD(imagickdraw, setviewbox)
 }
 
 /* {{{ proto string ImagickDraw::getFont()
-	Returns a string specifying the font used when annotating with text
+	Returns a string specifying the font used when annotating with text.
 */
 PHP_METHOD(imagickdraw, getfont)
 {
@@ -792,9 +798,8 @@ PHP_METHOD(imagickdraw, getfont)
 	if (!font) {
 		RETURN_FALSE;
 	} else {
-		ZVAL_STRING(return_value, font, 1);
+		RETVAL_STRING(font, 1);
 		IMAGICK_FREE_MEMORY(char *, font);
-		return;
 	}
 }
 /* }}} */
@@ -817,9 +822,8 @@ PHP_METHOD(imagickdraw, getfontfamily)
 	if (!font_family) {
 		RETURN_FALSE;
 	} else {
-		ZVAL_STRING(return_value, font_family, 1);
+		RETVAL_STRING(font_family, 1);
 		IMAGICK_FREE_MEMORY(char *, font_family);
-		return;
 	}
 }
 /* }}} */
@@ -839,8 +843,7 @@ PHP_METHOD(imagickdraw, getfontsize)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 
 	font_size = DrawGetFontSize(internd->drawing_wand);
-	ZVAL_DOUBLE(return_value, font_size);
-	return;
+	RETURN_DOUBLE(font_size);
 }
 /* }}} */
 
@@ -859,8 +862,7 @@ PHP_METHOD(imagickdraw, getfontstyle)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 
 	font_style = DrawGetFontStyle(internd->drawing_wand);
-	ZVAL_LONG(return_value, font_style);
-	return;
+	RETURN_LONG(font_style);
 }
 /* }}} */
 
@@ -879,8 +881,7 @@ PHP_METHOD(imagickdraw, getfontweight)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 
 	weight = DrawGetFontWeight(internd->drawing_wand);
-	ZVAL_LONG(return_value, weight);
-	return;
+	RETURN_LONG(weight);
 }
 /* }}} */
 
@@ -921,13 +922,12 @@ PHP_METHOD(imagickdraw, gettextdecoration)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 
 	decoration = DrawGetTextDecoration(internd->drawing_wand);
-	ZVAL_LONG(return_value, decoration);
-	return;
+	RETURN_LONG(decoration);
 }
 /* }}} */
 
 /* {{{ proto string ImagickDraw::getTextEncoding()
-	Returns a null-terminated string which specifies the code set used for text annotations. The string must be freed by the user once it is no longer required.
+	Returns a null-terminated string which specifies the code set used for text annotations.
 */
 PHP_METHOD(imagickdraw, gettextencoding)
 {
@@ -944,9 +944,8 @@ PHP_METHOD(imagickdraw, gettextencoding)
 	if (!encoding) {
 		RETURN_FALSE;
 	} else {
-		ZVAL_STRING(return_value, encoding, 1);
+		RETVAL_STRING(encoding, 1);
 		IMAGICK_FREE_MEMORY(char *, encoding);
-		return;
 	}
 }
 /* }}} */
@@ -1029,7 +1028,7 @@ PHP_METHOD(imagickdraw, arc)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::matte(float x, float y, int paintMethod)
-	Paints on the image's opacity channel in order to set effected pixels to transparent. to influence the opacity of pixels. The available paint methods are:
+	Paints on the image's opacity channel in order to set effected pixels to transparent.
 */
 PHP_METHOD(imagickdraw, matte)
 {
@@ -1168,13 +1167,12 @@ PHP_METHOD(imagickdraw, clone)
 	object_init_ex(return_value, php_imagickdraw_sc_entry);
 	intern_return = (php_imagickdraw_object *)zend_object_store_get_object(return_value TSRMLS_CC);
 	IMAGICKDRAW_REPLACE_DRAWINGWAND(intern_return, tmp_wand);
-
-	return;
 }
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::affine(array affine)
-	Adjusts the current affine transformation matrix with the specified affine transformation matrix. Note that the current affine transform is adjusted rather than replaced.
+	Adjusts the current affine transformation matrix with the specified affine transformation matrix.
+	Note that the current affine transform is adjusted rather than replaced.
 */
 PHP_METHOD(imagickdraw, affine)
 {
@@ -1271,7 +1269,7 @@ PHP_METHOD(imagickdraw, composite)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::color(float x, float y, int paintMethod)
-	Draws color on image using the current fill color, starting at specified position, and using specified paint method. The available paint methods are:
+	Draws color on image using the current fill color, starting at specified position, and using specified paint method.
 */
 PHP_METHOD(imagickdraw, color)
 {
@@ -1313,7 +1311,7 @@ PHP_METHOD(imagickdraw, comment)
 /* }}} */
 
 /* {{{ proto string ImagickDraw::getClipPath()
-	Obtains the current clipping path ID. The value returned must be deallocated by the user when it is no longer needed.
+	Obtains the current clipping path ID.
 */
 PHP_METHOD(imagickdraw, getclippath)
 {
@@ -1330,9 +1328,8 @@ PHP_METHOD(imagickdraw, getclippath)
 	if (!clip_path) {
 		RETURN_FALSE;
 	} else {
-		ZVAL_STRING(return_value, clip_path, 1);
+		RETVAL_STRING(clip_path, 1);
 		IMAGICK_FREE_MEMORY(char *, clip_path);
-		return;
 	}
 }
 /* }}} */
@@ -1352,7 +1349,7 @@ PHP_METHOD(imagickdraw, getcliprule)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	clip_rule = DrawGetClipRule(internd->drawing_wand);
 
-	RETVAL_LONG(clip_rule);
+	RETURN_LONG(clip_rule);
 }
 /* }}} */
 
@@ -1371,7 +1368,7 @@ PHP_METHOD(imagickdraw, getclipunits)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	units = DrawGetClipUnits(internd->drawing_wand);
 
-	RETVAL_LONG(units);
+	RETURN_LONG(units);
 }
 /* }}} */
 
@@ -1396,13 +1393,11 @@ PHP_METHOD(imagickdraw, getfillcolor)
 	object_init_ex(return_value, php_imagickpixel_sc_entry);
 	internp = (php_imagickpixel_object *) zend_object_store_get_object(return_value TSRMLS_CC);
 	IMAGICKPIXEL_REPLACE_PIXELWAND(internp, tmp_wand);
-
-	return;
 }
 /* }}} */
 
 /* {{{ proto float ImagickDraw::getFillOpacity()
-	Returns the opacity used when drawing using the fill color or fill texture.  Fully opaque is 1.0.
+	Returns the opacity used when drawing using the fill color or fill texture. Fully opaque is 1.0.
 */
 PHP_METHOD(imagickdraw, getfillopacity)
 {
@@ -1416,7 +1411,7 @@ PHP_METHOD(imagickdraw, getfillopacity)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	opacity = DrawGetFillOpacity(internd->drawing_wand);
 
-	RETVAL_DOUBLE(opacity);
+	RETURN_DOUBLE(opacity);
 }
 /* }}} */
 
@@ -1435,7 +1430,7 @@ PHP_METHOD(imagickdraw, getfillrule)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	fill_rule = DrawGetFillRule(internd->drawing_wand);
 
-	RETVAL_LONG(fill_rule);
+	RETURN_LONG(fill_rule);
 }
 /* }}} */
 
@@ -1454,12 +1449,14 @@ PHP_METHOD(imagickdraw, getgravity)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	gravity = DrawGetGravity(internd->drawing_wand);
 
-	RETVAL_LONG(gravity);
+	RETURN_LONG(gravity);
 }
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::getStrokeAntialias()
-	Returns the current stroke antialias setting. Stroked outlines are antialiased by default.  When antialiasing is disabled stroked pixels are thresholded to determine if the stroke color or underlying canvas color should be used.
+	Returns the current stroke antialias setting. Stroked outlines are antialiased by default.
+	When antialiasing is disabled stroked pixels are thresholded to determine if the stroke
+	color or underlying canvas color should be used.
 */
 PHP_METHOD(imagickdraw, getstrokeantialias)
 {
@@ -1502,13 +1499,12 @@ PHP_METHOD(imagickdraw, getstrokecolor)
 	object_init_ex(return_value, php_imagickpixel_sc_entry);
 	internp = (php_imagickpixel_object *) zend_object_store_get_object(return_value TSRMLS_CC);
 	IMAGICKPIXEL_REPLACE_PIXELWAND(internp, tmp_wand);
-
-	return;
 }
 /* }}} */
 
 /* {{{ proto array ImagickDraw::getStrokeDashArray()
-	Returns an array representing the pattern of dashes and gaps used to stroke paths (see DrawSetStrokeDashArray). The array must be freed once it is no longer required by the user.
+	Returns an array representing the pattern of dashes and gaps used to stroke paths (see DrawSetStrokeDashArray).
+	The array must be freed once it is no longer required by the user.
 */
 PHP_METHOD(imagickdraw, getstrokedasharray)
 {
@@ -1523,19 +1519,21 @@ PHP_METHOD(imagickdraw, getstrokedasharray)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 
 	stroke_array = DrawGetStrokeDashArray(internd->drawing_wand, &num_elements);
-	array_init(return_value);
+	array_init_size(return_value, num_elements);
 
 	for (i = 0; i < num_elements ; i++) {
 		add_next_index_double(return_value, stroke_array[i]);
 	}
 
 	IMAGICK_FREE_MEMORY(double *, stroke_array);
-	return;
 }
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setStrokeDashArray(array dashArray)
-	Specifies the pattern of dashes and gaps used to stroke paths. The strokeDashArray represents an array of numbers that specify the lengths of alternating dashes and gaps in pixels. If an odd number of values is provided, then the list of values is repeated to yield an even number of values. To remove an existing dash array, pass a zero number_elements argument and null dash_array. A typical strokeDashArray_ array might contain the members 5 3 2.
+	Specifies the pattern of dashes and gaps used to stroke paths. The strokeDashArray represents an array of numbers
+	that specify the lengths of alternating dashes and gaps in pixels. If an odd number of values is provided, then
+	the list of values is repeated to yield an even number of values. To remove an existing dash array, pass
+	a zero number_elements argument and null dash_array. A typical strokeDashArray array might contain the members 5 3 2.
 */
 PHP_METHOD(imagickdraw, setstrokedasharray)
 {
@@ -1579,12 +1577,13 @@ PHP_METHOD(imagickdraw, getstrokedashoffset)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	offset = DrawGetStrokeDashOffset(internd->drawing_wand);
 
-	RETVAL_DOUBLE(offset);
+	RETURN_DOUBLE(offset);
 }
 /* }}} */
 
 /* {{{ proto int ImagickDraw::getStrokeLineCap()
-	Returns the shape to be used at the end of open subpaths when they are stroked. Values of LineCap are UndefinedCap, ButtCap, RoundCap, and SquareCap.
+	Returns the shape to be used at the end of open subpaths when they are stroked. Values
+	of LineCap are UndefinedCap, ButtCap, RoundCap, and SquareCap.
 */
 PHP_METHOD(imagickdraw, getstrokelinecap)
 {
@@ -1598,12 +1597,13 @@ PHP_METHOD(imagickdraw, getstrokelinecap)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	line_cap = DrawGetStrokeLineCap(internd->drawing_wand);
 
-	RETVAL_LONG(line_cap);
+	RETURN_LONG(line_cap);
 }
 /* }}} */
 
 /* {{{ proto int ImagickDraw::getStrokeLineJoin()
-	Returns the shape to be used at the corners of paths (or other vector shapes) when they are stroked. Values of LineJoin are UndefinedJoin, MiterJoin, RoundJoin, and BevelJoin.
+	Returns the shape to be used at the corners of paths (or other vector shapes) when they are stroked.
+	Values of LineJoin are UndefinedJoin, MiterJoin, RoundJoin, and BevelJoin.
 */
 PHP_METHOD(imagickdraw, getstrokelinejoin)
 {
@@ -1617,12 +1617,14 @@ PHP_METHOD(imagickdraw, getstrokelinejoin)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	line_join = DrawGetStrokeLineJoin(internd->drawing_wand);
 
-	RETVAL_LONG(line_join);
+	RETURN_LONG(line_join);
 }
 /* }}} */
 
 /* {{{ proto int ImagickDraw::getStrokeMiterLimit()
-	Returns the miter limit. When two line segments meet at a sharp angle and miter joins have been specified for 'lineJoin', it is possible for the miter to extend far beyond the thickness of the line stroking the path. The miterLimit' imposes a limit on the ratio of the miter length to the 'lineWidth'.
+	Returns the miter limit. When two line segments meet at a sharp angle and miter joins have been specified for 'lineJoin',
+	it is possible for the miter to extend far beyond the thickness of the line stroking the path. The miterLimit' imposes
+	a limit on the ratio of the miter length to the 'lineWidth'.
 */
 PHP_METHOD(imagickdraw, getstrokemiterlimit)
 {
@@ -1636,7 +1638,7 @@ PHP_METHOD(imagickdraw, getstrokemiterlimit)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	miter_limit = DrawGetStrokeMiterLimit(internd->drawing_wand);
 
-	RETVAL_LONG(miter_limit);
+	RETURN_LONG(miter_limit);
 }
 /* }}} */
 
@@ -1655,7 +1657,7 @@ PHP_METHOD(imagickdraw, getstrokeopacity)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	opacity = DrawGetStrokeOpacity(internd->drawing_wand);
 
-	RETVAL_DOUBLE(opacity);
+	RETURN_DOUBLE(opacity);
 }
 /* }}} */
 
@@ -1674,7 +1676,7 @@ PHP_METHOD(imagickdraw, getstrokewidth)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	width = DrawGetStrokeWidth(internd->drawing_wand);
 
-	RETVAL_DOUBLE(width);
+	RETURN_DOUBLE(width);
 }
 /* }}} */
 
@@ -1693,12 +1695,12 @@ PHP_METHOD(imagickdraw, gettextalignment)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	align_type = DrawGetTextAlignment(internd->drawing_wand);
 
-	RETVAL_LONG(align_type);
+	RETURN_LONG(align_type);
 }
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::getTextAntialias()
-	Returns the current text antialias setting, which determines whether text is antialiased.  Text is antialiased by default.
+	Returns the current text antialias setting, which determines whether text is antialiased. Text is antialiased by default.
 */
 PHP_METHOD(imagickdraw, gettextantialias)
 {
@@ -1721,7 +1723,8 @@ PHP_METHOD(imagickdraw, gettextantialias)
 /* }}} */
 
 /* {{{ proto string ImagickDraw::getVectorGraphics()
-	Returns a null-terminated string which specifies the vector graphics generated by any graphics calls made since the wand was instantiated.  The string must be freed by the user once it is no longer required.
+	Returns a null-terminated string which specifies the vector graphics generated by any graphics calls made
+	since the wand was instantiated. The string must be freed by the user once it is no longer required.
 */
 PHP_METHOD(imagickdraw, getvectorgraphics)
 {
@@ -1735,10 +1738,8 @@ PHP_METHOD(imagickdraw, getvectorgraphics)
 	internd = (php_imagickdraw_object *)zend_object_store_get_object(getThis() TSRMLS_CC);
 	vector = DrawGetVectorGraphics(internd->drawing_wand);
 
-	ZVAL_STRING(return_value, vector, 1);
+	RETVAL_STRING(vector, 1);
 	IMAGICK_FREE_MEMORY(char *, vector);
-
-	return;
 }
 /* }}} */
 
@@ -1768,8 +1769,6 @@ PHP_METHOD(imagickdraw, gettextundercolor)
 	object_init_ex(return_value, php_imagickpixel_sc_entry);
 	internp = (php_imagickpixel_object *) zend_object_store_get_object(return_value TSRMLS_CC);
 	IMAGICKPIXEL_REPLACE_PIXELWAND(internp, tmp_wand);
-
-	return;
 }
 /* }}} */
 
