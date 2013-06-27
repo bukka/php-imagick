@@ -1773,7 +1773,8 @@ PHP_METHOD(imagickdraw, gettextundercolor)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathClose()
-	Adds a path element to the current path which closes the current subpath by drawing a straight line from the current point to the current subpath's most recent starting point (usually, the most recent moveto point).
+	Adds a path element to the current path which closes the current subpath by drawing a straight line from
+	the current point to the current subpath's most recent starting point (usually, the most recent moveto point).
 */
 PHP_METHOD(imagickdraw, pathclose)
 {
@@ -1790,7 +1791,10 @@ PHP_METHOD(imagickdraw, pathclose)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathCurveToAbsolute(float x1, float y1, float x2, float y2, float x, float y)
-	Draws a cubic Bezier curve from the current point to (x,y) using (x1,y1) as the control point at the beginning of the curve and (x2,y2) as the control point at the end of the curve using absolute coordinates. At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
+	Draws a cubic Bezier curve from the current point to (x,y) using (x1,y1) as the control point
+	at the beginning of the curve and (x2,y2) as the control point at the end of the curve using
+	absolute coordinates. At the end of the command, the new current point becomes the final (x,y)
+	coordinate pair used in the polybezier.
 */
 PHP_METHOD(imagickdraw, pathcurvetoabsolute)
 {
@@ -1810,7 +1814,10 @@ PHP_METHOD(imagickdraw, pathcurvetoabsolute)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathCurveToRelative(float x1, float y1, float x2, float y2, float x, float y)
-	Draws a cubic Bezier curve from the current point to (x,y) using (x1,y1) as the control point at the beginning of the curve and (x2,y2) as the control point at the end of the curve using relative coordinates. At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
+	Draws a cubic Bezier curve from the current point to (x,y) using (x1,y1) as the control point
+	at the beginning of the curve and (x2,y2) as the control point at the end of the curve using
+	relative coordinates. At the end of the command, the new current point becomes the final (x,y)
+	coordinate pair used in the polybezier.
 */
 PHP_METHOD(imagickdraw, pathcurvetorelative)
 {
@@ -1830,7 +1837,8 @@ PHP_METHOD(imagickdraw, pathcurvetorelative)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathCurveToQuadraticBezierAbsolute(float x1, float y1, float x, float y)
-	Draws a quadratic Bezier curve from the current point to (x,y) using (x1,y1) as the control point using absolute coordinates. At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
+	Draws a quadratic Bezier curve from the current point to (x,y) using (x1,y1) as the control point using absolute coordinates.
+	At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
 */
 PHP_METHOD(imagickdraw, pathcurvetoquadraticbezierabsolute)
 {
@@ -1850,7 +1858,8 @@ PHP_METHOD(imagickdraw, pathcurvetoquadraticbezierabsolute)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathCurveToQuadraticBezierRelative(float x1, float y1, float x, float y)
-	Draws a quadratic Bezier curve from the current point to (x,y) using (x1,y1) as the control point using relative coordinates. At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
+	Draws a quadratic Bezier curve from the current point to (x,y) using (x1,y1) as the control point using relative coordinates.
+	At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
 */
 PHP_METHOD(imagickdraw, pathcurvetoquadraticbezierrelative)
 {
@@ -1870,7 +1879,12 @@ PHP_METHOD(imagickdraw, pathcurvetoquadraticbezierrelative)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathCurveToQuadraticBezierSmoothAbsolute(float x, float y)
-	Draws a quadratic Bezier curve (using relative coordinates) from the current point to (x,y). The control point is assumed to be the reflection of the control point on the previous command relative to the current point. (If there is no previous command or if the previous command was not a DrawPathCurveToQuadraticBezierAbsolute, DrawPathCurveToQuadraticBezierRelative, DrawPathCurveToQuadraticBezierSmoothAbsolut or DrawPathCurveToQuadraticBezierSmoothRelative, assume the control point is coincident with the current point.). At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
+	Draws a quadratic Bezier curve (using relative coordinates) from the current point to (x,y). The control point is assumed
+	to be the reflection of the control point on the previous command relative to the current point. (If there is no previous
+	command or if the previous command was not a DrawPathCurveToQuadraticBezierAbsolute, DrawPathCurveToQuadraticBezierRelative,
+	DrawPathCurveToQuadraticBezierSmoothAbsolut or DrawPathCurveToQuadraticBezierSmoothRelative, assume the control point
+	is coincident with the current point.). At the end of the command, the new current point becomes the final (x,y)
+	coordinate pair used in the polybezier.
 */
 PHP_METHOD(imagickdraw, pathcurvetoquadraticbeziersmoothabsolute)
 {
@@ -1890,7 +1904,12 @@ PHP_METHOD(imagickdraw, pathcurvetoquadraticbeziersmoothabsolute)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathCurveToQuadraticBezierSmoothRelative(float x, float y)
-	Draws a quadratic Bezier curve (using relative coordinates) from the current point to (x, y). The control point is assumed to be the reflection of the control point on the previous command relative to the current point. (If there is no previous command or if the previous command was not a DrawPathCurveToQuadraticBezierAbsolute, DrawPathCurveToQuadraticBezierRelative, DrawPathCurveToQuadraticBezierSmoothAbsolut or DrawPathCurveToQuadraticBezierSmoothRelative, assume the control point is coincident with the current point). At the end of the command, the new current point becomes the final (x, y) coordinate pair used in the polybezier.
+	Draws a quadratic Bezier curve (using relative coordinates) from the current point to (x, y). The control point is assumed
+	to be the reflection of the control point on the previous command relative to the current point. (If there is no previous
+	command or if the previous command was not a DrawPathCurveToQuadraticBezierAbsolute, DrawPathCurveToQuadraticBezierRelative,
+	DrawPathCurveToQuadraticBezierSmoothAbsolut or DrawPathCurveToQuadraticBezierSmoothRelative, assume the control point
+	is coincident with the current point). At the end of the command, the new current point becomes the final (x, y) coordinate
+	pair used in the polybezier.
 */
 PHP_METHOD(imagickdraw, pathcurvetoquadraticbeziersmoothrelative)
 {
@@ -1910,7 +1929,12 @@ PHP_METHOD(imagickdraw, pathcurvetoquadraticbeziersmoothrelative)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathCurveToSmoothAbsolute(float x2, float y2, float x, float y)
-	Draws a cubic Bezier curve from the current point to (x,y) using absolute coordinates. The first control point is assumed to be the reflection of the second control point on the previous command relative to the current point. (If there is no previous command or if the previous command was not an DrawPathCurveToAbsolute, DrawPathCurveToRelative, DrawPathCurveToSmoothAbsolute or DrawPathCurveToSmoothRelative, assume the first control point is coincident with the current point.) (x2,y2) is the second control point (i.e., the control point at the end of the curve). At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
+	Draws a cubic Bezier curve from the current point to (x,y) using absolute coordinates. The first control point is assumed
+	to be the reflection of the second control point on the previous command relative to the current point. (If there is
+	no	previous command or if the previous command was not an DrawPathCurveToAbsolute, DrawPathCurveToRelative,
+	DrawPathCurveToSmoothAbsolute or DrawPathCurveToSmoothRelative, assume the first control point is coincident with
+	the current point.) (x2,y2) is the second control point (i.e., the control point at the end of the curve). At the end
+	of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
 */
 PHP_METHOD(imagickdraw, pathcurvetosmoothabsolute)
 {
@@ -1930,7 +1954,12 @@ PHP_METHOD(imagickdraw, pathcurvetosmoothabsolute)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathCurveToSmoothRelative(float x2, float y2, float x, float y)
-	Draws a cubic Bezier curve from the current point to (x,y) using relative coordinates. The first control point is assumed to be the reflection of the second control point on the previous command relative to the current point. (If there is no previous command or if the previous command was not an DrawPathCurveToAbsolute, DrawPathCurveToRelative, DrawPathCurveToSmoothAbsolute or DrawPathCurveToSmoothRelative, assume the first control point is coincident with the current point.) (x2,y2) is the second control point (i.e., the control point at the end of the curve). At the end of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
+	Draws a cubic Bezier curve from the current point to (x,y) using relative coordinates. The first control point is assumed
+	to be the reflection of the second control point on the previous command relative to the current point. (If there is
+	no previous command or if the previous command was not an DrawPathCurveToAbsolute, DrawPathCurveToRelative,
+	DrawPathCurveToSmoothAbsolute or DrawPathCurveToSmoothRelative, assume the first control point is coincident with
+	the current point.) (x2,y2) is the second control point (i.e., the control point at the end of the curve). At the end
+	of the command, the new current point becomes the final (x,y) coordinate pair used in the polybezier.
 */
 PHP_METHOD(imagickdraw, pathcurvetosmoothrelative)
 {
@@ -1950,7 +1979,11 @@ PHP_METHOD(imagickdraw, pathcurvetosmoothrelative)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathEllipticArcAbsolute(float rx, float ry, float x_axis_rotation, bool large_arc_flag, bool sweep_flag, float x, float y)
-	Draws an elliptical arc from the current point to (x, y) using absolute coordinates. The size and orientation of the ellipse are defined by two radii (rx, ry) and an xAxisRotation, which indicates how the ellipse as a whole is rotated relative to the current coordinate system. The center (cx, cy) of the ellipse is calculated automatically to satisfy the constraints imposed by the other parameters. largeArcFlag and sweepFlag contribute to the automatic calculations and help determine how the arc is drawn. If largeArcFlag is true then draw the larger of the available arcs. If sweepFlag is true, then draw the arc matching a clock-wise rotation.
+	Draws an elliptical arc from the current point to (x, y) using absolute coordinates. The size and orientation of the ellipse are defined by
+	two radii (rx, ry) and an xAxisRotation, which indicates how the ellipse as a whole is rotated relative to the current coordinate system.
+	The center (cx, cy) of the ellipse is calculated automatically to satisfy the constraints imposed by the other parameters. largeArcFlag and
+	sweepFlag contribute to the automatic calculations and help determine how the arc is drawn. If largeArcFlag is true then draw the larger
+	of the available arcs. If sweepFlag is true, then draw the arc matching a clock-wise rotation.
 */
 PHP_METHOD(imagickdraw, pathellipticarcabsolute)
 {
@@ -1971,7 +2004,11 @@ PHP_METHOD(imagickdraw, pathellipticarcabsolute)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathEllipticArcRelative(float rx, float ry, float x_axis_rotation, bool large_arc_flag, bool sweep_flag, float x, float y)
-	Draws an elliptical arc from the current point to (x, y) using relative coordinates. The size and orientation of the ellipse are defined by two radii (rx, ry) and an xAxisRotation, which indicates how the ellipse as a whole is rotated relative to the current coordinate system. The center (cx, cy) of the ellipse is calculated automatically to satisfy the constraints imposed by the other parameters. largeArcFlag and sweepFlag contribute to the automatic calculations and help determine how the arc is drawn. If largeArcFlag is true then draw the larger of the available arcs. If sweepFlag is true, then draw the arc matching a clock-wise rotation.
+	Draws an elliptical arc from the current point to (x, y) using relative coordinates. The size and orientation of the ellipse are defined by
+	two radii (rx, ry) and an xAxisRotation, which indicates how the ellipse as a whole is rotated relative to the current coordinate system.
+	The center (cx, cy) of the ellipse is calculated automatically to satisfy the constraints imposed by the other parameters. largeArcFlag
+	and sweepFlag contribute to the automatic calculations and help determine how the arc is drawn. If largeArcFlag is true then draw the
+	larger of the available arcs. If sweepFlag is true, then draw the arc matching a clock-wise rotation.
 */
 PHP_METHOD(imagickdraw, pathellipticarcrelative)
 {
@@ -2049,7 +2086,7 @@ PHP_METHOD(imagickdraw, pathlinetorelative)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathLineToHorizontalAbsolute(float x)
-	Draws a horizontal line path from the current point to the target point using absolute coordinates.  The target point then becomes the new current point.
+	Draws a horizontal line path from the current point to the target point using absolute coordinates. The target point then becomes the new current point.
 */
 PHP_METHOD(imagickdraw, pathlinetohorizontalabsolute)
 {
@@ -2069,7 +2106,7 @@ PHP_METHOD(imagickdraw, pathlinetohorizontalabsolute)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathLineToHorizontalRelative(float x)
-	Draws a horizontal line path from the current point to the target point using relative coordinates.  The target point then becomes the new current point.
+	Draws a horizontal line path from the current point to the target point using relative coordinates. The target point then becomes the new current point.
 */
 PHP_METHOD(imagickdraw, pathlinetohorizontalrelative)
 {
@@ -2089,7 +2126,7 @@ PHP_METHOD(imagickdraw, pathlinetohorizontalrelative)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathLineToVerticalAbsolute(float y)
-	Draws a vertical line path from the current point to the target point using absolute coordinates.  The target point then becomes the new current point.
+	Draws a vertical line path from the current point to the target point using absolute coordinates. The target point then becomes the new current point.
 */
 PHP_METHOD(imagickdraw, pathlinetoverticalabsolute)
 {
@@ -2109,7 +2146,7 @@ PHP_METHOD(imagickdraw, pathlinetoverticalabsolute)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathLineToVerticalRelative(float y)
-	Draws a vertical line path from the current point to the target point using relative coordinates.  The target point then becomes the new current point.
+	Draws a vertical line path from the current point to the target point using relative coordinates. The target point then becomes the new current point.
 */
 PHP_METHOD(imagickdraw, pathlinetoverticalrelative)
 {
@@ -2169,7 +2206,9 @@ PHP_METHOD(imagickdraw, pathmovetorelative)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pathStart()
-	Declares the start of a path drawing list which is terminated by a matching DrawPathFinish() command. All other DrawPath commands must be enclosed between a and a DrawPathFinish() command. This is because path drawing commands are subordinate commands and they do not function by themselves.
+	Declares the start of a path drawing list which is terminated by a matching DrawPathFinish() command.
+	All other DrawPath commands must be enclosed between a and a DrawPathFinish() command. This is because path
+	drawing commands are subordinate commands and they do not function by themselves.
 */
 PHP_METHOD(imagickdraw, pathstart)
 {
@@ -2211,7 +2250,6 @@ PHP_METHOD(imagickdraw, polyline)
 
 	efree(coordinates);
 	RETURN_TRUE;
-
 }
 /* }}} */
 
@@ -2233,7 +2271,7 @@ PHP_METHOD(imagickdraw, popclippath)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::popDefs()
-	Terminates a definition list
+	Terminates a definition list.
 */
 PHP_METHOD(imagickdraw, popdefs)
 {
@@ -2294,7 +2332,8 @@ PHP_METHOD(imagickdraw, pushclippath)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pushDefs()
-	Indicates that commands up to a terminating DrawPopDefs() command create named elements (e.g. clip-paths, textures, etc.) which may safely be processed earlier for the sake of efficiency.
+	Indicates that commands up to a terminating DrawPopDefs() command create named elements (e.g. clip-paths, textures, etc.)
+	which may safely be processed earlier for the sake of efficiency.
 */
 PHP_METHOD(imagickdraw, pushdefs)
 {
@@ -2311,7 +2350,9 @@ PHP_METHOD(imagickdraw, pushdefs)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pushPattern(string pattern_id, float x, float y, float width, float height)
-	Indicates that subsequent commands up to a DrawPopPattern() command comprise the definition of a named pattern. The pattern space is assigned top left corner coordinates, a width and height, and becomes its own drawing space.  Anything which can be drawn may be used in a pattern definition. Named patterns may be used as stroke or brush definitions.
+	Indicates that subsequent commands up to a DrawPopPattern() command comprise the definition of a named pattern. The pattern space
+	is assigned top left corner coordinates, a width and height, and becomes its own drawing space. Anything which can be drawn
+	may be used in a pattern definition. Named patterns may be used as stroke or brush definitions.
 */
 PHP_METHOD(imagickdraw, pushpattern)
 {	
@@ -2401,7 +2442,7 @@ PHP_METHOD(imagickdraw, scale)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setClipPath(string clip_mask)
-	Associates a named clipping path with the image.  Only the areas drawn on by the clipping path will be modified as long as it remains in effect.
+	Associates a named clipping path with the image. Only the areas drawn on by the clipping path will be modified as long as it remains in effect.
 */
 PHP_METHOD(imagickdraw, setclippath)
 {
@@ -2467,7 +2508,7 @@ PHP_METHOD(imagickdraw, setclipunits)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setFillOpacity(float fillOpacity)
-	Sets the opacity to use when drawing using the fill color or fill texture.  Fully opaque is 1.0.
+	Sets the opacity to use when drawing using the fill color or fill texture. Fully opaque is 1.0.
 */
 PHP_METHOD(imagickdraw, setfillopacity)
 {
@@ -2487,7 +2528,8 @@ PHP_METHOD(imagickdraw, setfillopacity)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setFillPatternURL(string fill_url)
-	Sets the URL to use as a fill pattern for filling objects. Only local URLs ("#identifier") are supported at this time. These local URLs are normally created by defining a named fill pattern with DrawPushPattern/DrawPopPattern.
+	Sets the URL to use as a fill pattern for filling objects. Only local URLs ("#identifier") are supported at this time.
+	These local URLs are normally created by defining a named fill pattern with DrawPushPattern/DrawPopPattern.
 */
 PHP_METHOD(imagickdraw, setfillpatternurl)
 {
@@ -2599,7 +2641,8 @@ PHP_METHOD(imagickdraw, setstrokedashoffset)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setStrokeLineCap(int linecap)
-	Specifies the shape to be used at the end of open subpaths when they are stroked. Values of LineCap are UndefinedCap, ButtCap, RoundCap, and SquareCap.
+	Specifies the shape to be used at the end of open subpaths when they are stroked.
+	Values of LineCap are UndefinedCap, ButtCap, RoundCap, and SquareCap.
 */
 PHP_METHOD(imagickdraw, setstrokelinecap)
 {
@@ -2619,7 +2662,8 @@ PHP_METHOD(imagickdraw, setstrokelinecap)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setStrokeLineJoin(int linejoin)
-	Specifies the shape to be used at the corners of paths (or other vector shapes) when they are stroked. Values of LineJoin are UndefinedJoin, MiterJoin, RoundJoin, and BevelJoin.
+	Specifies the shape to be used at the corners of paths (or other vector shapes) when they are stroked.
+	Values of LineJoin are UndefinedJoin, MiterJoin, RoundJoin, and BevelJoin.
 */
 PHP_METHOD(imagickdraw, setstrokelinejoin)
 {	
@@ -2639,7 +2683,9 @@ PHP_METHOD(imagickdraw, setstrokelinejoin)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setStrokeMiterLimit(int miterlimit)
-	Specifies the miter limit. When two line segments meet at a sharp angle and miter joins have been specified for 'lineJoin', it is possible for the miter to extend far beyond the thickness of the line stroking the path. The miterLimit' imposes a limit on the ratio of the miter length to the 'lineWidth'.
+	Specifies the miter limit. When two line segments meet at a sharp angle and miter joins have been specified
+	for 'lineJoin', it is possible for the miter to extend far beyond the thickness of the line stroking the path.
+	The miterLimit' imposes a limit on the ratio of the miter length to the 'lineWidth'.
 */
 PHP_METHOD(imagickdraw, setstrokemiterlimit)
 {
@@ -2679,7 +2725,8 @@ PHP_METHOD(imagickdraw, setstrokeopacity)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::setVectorGraphics(string xml)
-	Sets the vector graphics associated with the specified wand.  Use this method with DrawGetVectorGraphics() as a method to persist the vector graphics state.
+	Sets the vector graphics associated with the specified wand. Use this method with DrawGetVectorGraphics()
+	as a method to persist the vector graphics state.
 */
 PHP_METHOD(imagickdraw, setvectorgraphics)
 {
@@ -2705,7 +2752,8 @@ PHP_METHOD(imagickdraw, setvectorgraphics)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::pop()
-	Destroys the current DrawingWand in the stack, and returns to the previously pushed DrawingWand. Multiple DrawingWands may exist. It is an error to attempt to pop more DrawingWands than have been pushed, and it is proper form to pop all DrawingWands which have been pushed.
+	Destroys the current DrawingWand in the stack, and returns to the previously pushed DrawingWand. Multiple DrawingWands may exist.
+	It is an error to attempt to pop more DrawingWands than have been pushed, and it is proper form to pop all DrawingWands which have been pushed.
 */
 PHP_METHOD(imagickdraw, pop)
 {
@@ -2728,7 +2776,9 @@ PHP_METHOD(imagickdraw, pop)
 /* }}} */
 
 /* {{{ proto bool ImagickDraw::push()
-	Clones the current DrawingWand to create a new DrawingWand, which is then added to the DrawingWand stack. The original drawing DrawingWand(s) may be returned to by invoking PopDrawingWand(). The DrawingWands are stored on a DrawingWand stack. For every Pop there must have already been an equivalent Push.
+	Clones the current DrawingWand to create a new DrawingWand, which is then added to the DrawingWand stack. The original
+	drawing DrawingWand(s) may be returned to by invoking PopDrawingWand(). The DrawingWands are stored on a DrawingWand stack.
+	For every Pop there must have already been an equivalent Push.
 */
 PHP_METHOD(imagickdraw, push)
 {
